@@ -1,0 +1,6 @@
+{
+    "name": "lesaff/useragent",
+    "require": {
+        "jenssegers/agent": "^2.3"
+    }
+}
