@@ -1,5 +1,5 @@
 name: User Agent
-addon_url: https://github.com/lesaff/statamic-browserinfo
+addon_url: https://github.com/lesaff/statamic-useragent
 version: 1.0.0
 developer: Rudy Affandi
 developer_url: https://github.com/lesaff
