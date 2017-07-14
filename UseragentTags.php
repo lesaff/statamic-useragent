@@ -7,13 +7,15 @@ use Stringy\StaticStringy as Stringy;
 
 class UseragentTags extends Tags
 {
+    /** @var array */
+    private $data;
+
     /**
      * Initialize any classes we'll need
      */
     public function init()
     {
-        $this->Useragent = new Useragent;
-        $this->data = $this->Useragent->getUA();
+        $this->data = $this->api()->getUA();
     }
 
     /**
