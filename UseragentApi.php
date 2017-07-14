@@ -2,22 +2,22 @@
 
 namespace Statamic\Addons\Useragent;
 
-use Statamic\Extend\API;
 use Jenssegers\Agent\Agent;
+use Statamic\Extend\API;
 
 class UseragentAPI extends API
 {
-    /**
-     * Accessed by $this->api('Useragent')->getUA() from other addons
-     */
-    public function getUA()
+    /** @var array */
+    private $data;
+
+    protected function init()
     {
         // Initialize UA
         $agent = new Agent();
         $browser = $agent->browser();
 
         // Assemble data
-        $data = [
+        $this->data = [
             'browser'         => $browser,
             'browser_version' => $agent->version($browser),
             'languages'       => array($agent->languages()),
@@ -29,6 +29,13 @@ class UseragentAPI extends API
             'is_robot'        => $agent->isRobot(),
             'robot_name'      => $agent->robot()
         ];
-        return $data;
+    }
+
+    /**
+     * Accessed by $this->api('Useragent')->getUA() from other addons
+     */
+    public function getUA()
+    {
+        return $this->data;
     }
 }
